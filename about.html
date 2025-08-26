@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - RBU ECELL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .dots-pattern {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dots-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(46, 134, 193, 0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+            animation: dotsFloat 15s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes dotsFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(15px);
+            background: rgba(245, 245, 245, 0.1);
+            border: 1px solid rgba(46, 134, 193, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-shrink {
+            transform: scale(0.9);
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin: 10px 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(46, 134, 193, 0.1) 0%, rgba(245, 245, 245, 0.9) 100%);
+            position: relative;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #2E86C1, #F39C12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 glass-effect navbar-shrink">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="logo.png" alt="RBU ECELL Logo" class="w-10 h-10 rounded-full mr-3 object-cover">
+                    <div class="text-2xl font-bold text-gradient">RBU ECELL</div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                        <a href="offerings.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Offerings</a>
+                        <a href="about.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors active">About Us</a>
+                        <a href="events.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">Events</a>
+                        <a href="more.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">More</a>
+                        <button id="newsletterBtn" class="orange-gradient text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">Newsletter</button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-700 hover:text-orange-500 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <!-- About Section -->
+        <section class="min-h-screen py-20 dots-pattern">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold text-gray-900 mb-4">About Our Team</h1>
+                    <p class="text-xl text-gray-600">Meet the passionate individuals driving innovation at RBU ECELL</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="glass-effect rounded-xl p-6 text-center hover-scale fade-in">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                             alt="Team Member" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Rahul Sharma</h3>
+                        <p class="text-gray-600 mb-2">President & Founder</p>
+                        <p class="text-sm text-gray-500 mb-4">Leading innovation and entrepreneurship initiatives across the university with 3+ years of startup experience.</p>
+                        <a href="https://linkedin.com/in/rahulsharma" target="_blank" class="inline-flex items-center text-orange-500 hover:text-orange-600 mb-2">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <div class="mt-2 text-xs text-gray-400">🏆 Best Startup Award 2023</div>
+                    </div>
+                    
+                    <div class="glass-effect rounded-xl p-6 text-center hover-scale fade-in">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                             alt="Team Member" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Priya Patel</h3>
+                        <p class="text-gray-600 mb-2">Vice President</p>
+                        <p class="text-sm text-gray-500 mb-4">Driving community engagement and partnerships with industry leaders and successful entrepreneurs.</p>
+                        <a href="https://linkedin.com/in/priyapatel" target="_blank" class="inline-flex items-center text-orange-500 hover:text-orange-600 mb-2">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <div class="mt-2 text-xs text-gray-400">🌟 Young Entrepreneur 2023</div>
+                    </div>
+                    
+                    <div class="glass-effect rounded-xl p-6 text-center hover-scale fade-in">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                             alt="Team Member" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Arjun Kumar</h3>
+                        <p class="text-gray-600 mb-2">Technical Lead</p>
+                        <p class="text-sm text-gray-500 mb-4">Overseeing technical projects and mentorship programs for aspiring tech entrepreneurs.</p>
+                        <a href="https://linkedin.com/in/arjunkumar" target="_blank" class="inline-flex items-center text-orange-500 hover:text-orange-600 mb-2">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <div class="mt-2 text-xs text-gray-400">💻 Tech Innovation Award</div>
+                    </div>
+                    
+                    <div class="glass-effect rounded-xl p-6 text-center hover-scale fade-in">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                             alt="Team Member" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Sneha Gupta</h3>
+                        <p class="text-gray-600 mb-2">Marketing Head</p>
+                        <p class="text-sm text-gray-500 mb-4">Building brand presence and outreach programs to connect with students and industry partners.</p>
+                        <a href="https://linkedin.com/in/snehagupta" target="_blank" class="inline-flex items-center text-orange-500 hover:text-orange-600 mb-2">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <div class="mt-2 text-xs text-gray-400">📈 Marketing Excellence 2023</div>
+                    </div>
+                    
+                    <div class="glass-effect rounded-xl p-6 text-center hover-scale fade-in">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                             alt="Team Member" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Vikash Singh</h3>
+                        <p class="text-gray-600 mb-2">Operations Manager</p>
+                        <p class="text-sm text-gray-500 mb-4">Ensuring smooth operations and event management for all ECELL activities and programs.</p>
+                        <a href="https://linkedin.com/in/vikashsingh" target="_blank" class="inline-flex items-center text-orange-500 hover:text-orange-600 mb-2">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <div class="mt-2 text-xs text-gray-400">🎯 Operations Excellence</div>
+                    </div>
+                    
+                    <div class="glass-effect rounded-xl p-6 text-center hover-scale fade-in">
+                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                             alt="Team Member" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Anita Rao</h3>
+                        <p class="text-gray-600 mb-2">Finance Head</p>
+                        <p class="text-sm text-gray-500 mb-4">Managing funding and financial strategies for startups and ECELL operations.</p>
+                        <a href="https://linkedin.com/in/anitarao" target="_blank" class="inline-flex items-center text-orange-500 hover:text-orange-600 mb-2">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <div class="mt-2 text-xs text-gray-400">💰 Financial Leadership Award</div>
+                    </div>
+                </div>
+                
+                <!-- Mission & Vision -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                    <div class="glass-effect rounded-xl p-8 fade-in">
+                        <div class="w-16 h-16 orange-gradient rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-bullseye text-white text-2xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4 text-gradient">Our Mission</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            To foster entrepreneurial thinking and innovation among students at Ramdeo Baba University by providing 
+                            comprehensive support, mentorship, and resources needed to transform ideas into successful ventures. 
+                            We aim to create a thriving ecosystem where creativity meets opportunity.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-xl p-8 fade-in">
+                        <div class="w-16 h-16 orange-gradient rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-eye text-white text-2xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4 text-gradient">Our Vision</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            To become the leading entrepreneurship cell in India, recognized for producing innovative startups 
+                            and successful entrepreneurs who contribute to economic growth and social impact. We envision a future 
+                            where every student has the opportunity to explore their entrepreneurial potential.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Values -->
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold text-center mb-12 text-gradient">Our Core Values</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="glass-effect rounded-xl p-6 text-center hover-scale">
+                            <div class="w-12 h-12 orange-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-lightbulb text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Innovation</h3>
+                            <p class="text-gray-600 text-sm">Encouraging creative thinking and breakthrough solutions</p>
+                        </div>
+                        
+                        <div class="glass-effect rounded-xl p-6 text-center hover-scale">
+                            <div class="w-12 h-12 orange-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Collaboration</h3>
+                            <p class="text-gray-600 text-sm">Building strong partnerships and teamwork</p>
+                        </div>
+                        
+                        <div class="glass-effect rounded-xl p-6 text-center hover-scale">
+                            <div class="w-12 h-12 orange-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-star text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Excellence</h3>
+                            <p class="text-gray-600 text-sm">Striving for the highest standards in everything we do</p>
+                        </div>
+                        
+                        <div class="glass-effect rounded-xl p-6 text-center hover-scale">
+                            <div class="w-12 h-12 orange-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Impact</h3>
+                            <p class="text-gray-600 text-sm">Creating meaningful change in society and economy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Fade-in animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
