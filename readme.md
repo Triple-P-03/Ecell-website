@@ -85,4 +85,8 @@ Each section is built as a separate route/page using React Router or Framer's pa
 git clone https://github.com/Triple-P-03
 cd rbu-ecell
 npm install
+
 npm start
+
+
+https://triple-p-03.github.io/Ecell-website/
